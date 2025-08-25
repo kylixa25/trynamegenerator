@@ -1,3 +1,4 @@
+// ---------- wordlists (starter) ----------
 const lists = {
   baby: {prefix:["El","An","Mi","Jo","Li","Ari","No","Sa","Ka","Le","Na","Theo","Vi","Ava","Eli"], suffix:["la","ah","na","son","iah","ana","en","elle","a","ra","ia","ael","ie","lin","ette"]},
   business: {prefix:["Blue","Prime","Nova","Peak","Swift","Atlas","Zen","Urban","Bright","True","Clear","Apex","Spark","Echo","North"], suffix:["Labs","Works","Point","Forge","Flow","Hub","Core","Studio","ly","Loop","Nest","Stack","Wave","Rise","Craft"]},
@@ -5,11 +6,18 @@ const lists = {
   username: {prefix:["Night","Pixel","Shadow","Byte","Echo","Frost","Crimson","Aero","Cyber","Lunar","Turbo","Quantum","Cosmic","Nova","Rogue"], suffix:["Wolf","Pilot","Nova","Rush","Axis","Storm","Spark","Rider","Ghost","Vibe","Volt","Blade","Strafe","Zen","Prime"]}
 };
 
+// ---------- dom refs ----------
 const el = id => document.getElementById(id);
-const category = el('category'), style = el('style'), lengthSel = el('length'), starts = el('starts'), count = el('count');
-const results = el('results'), status = el('status');
-const domainBtn = document.querySelector('.cta');
+const category   = el('category')   || { value: 'business' }; // some category pages use a hidden input
+const style      = el('style');
+const lengthSel  = el('length');
+const starts     = el('starts');
+const count      = el('count');
+const results    = el('results');
+const status     = el('status');
+const domainBtn  = document.querySelector('.cta');
 
+// ---------- helpers ----------
 function rng(arr){return arr[Math.floor(Math.random()*arr.length)];}
 function stylize(name, s){
   if(s==="cute") return name + ["y","ie","oo"][Math.floor(Math.random()*3)];
@@ -18,7 +26,7 @@ function stylize(name, s){
   return name;
 }
 function makeName(cat, opts){
-  const {prefix, suffix} = lists[cat];
+  const {prefix, suffix} = lists[cat] || lists.business;
   let name = rng(prefix) + rng(suffix);
   if(opts.starts && /^[a-z]$/i.test(opts.starts)) {
     for(let i=0;i<30 && name[0].toLowerCase()!==opts.starts.toLowerCase();i++){
@@ -35,7 +43,9 @@ function generate(cat, n, opts){
   return [...set];
 }
 
+// ---------- render ----------
 function render(list){
+  if(!results) return;
   results.innerHTML = "";
   const frag = document.createDocumentFragment();
   list.forEach(name=>{
@@ -49,68 +59,116 @@ function render(list){
     frag.appendChild(div);
   });
   results.appendChild(frag);
-  status.textContent = `${list.length} names generated`;
+  if(status){ status.textContent = `${list.length} names generated`; }
+
+  // update domain CTA link for business page
   const domain = encodeURIComponent((list[0]||"").replace(/\s+/g,'') + ".com");
-  if (domainBtn) domainBtn.href = domainBtn.href.replace(/domain=.+$/,'domain='+domain);
+  if (domainBtn && domainBtn.href.includes("domain=")) {
+    domainBtn.href = domainBtn.href.replace(/domain=.+$/,'domain='+domain);
+  }
 }
 
+// ---------- query sync ----------
 function toQuery(){
   const q = new URLSearchParams({
-    c: category.value, s: style.value, l: lengthSel.value,
-    st: (starts.value||"").toLowerCase(), n: count.value
+    c: category.value, s: style?.value, l: lengthSel?.value,
+    st: (starts?.value||"").toLowerCase(), n: count?.value
   });
   return q.toString();
 }
 function fromQuery(){
   const q = new URLSearchParams(location.search);
   if(q.size===0) return;
-  category.value = q.get('c') || category.value;
-  style.value    = q.get('s') || style.value;
-  lengthSel.value= q.get('l') || lengthSel.value;
-  starts.value   = (q.get('st')||"").toUpperCase();
-  count.value    = q.get('n') || count.value;
+  if(category)   category.value   = q.get('c') || category.value;
+  if(style)      style.value      = q.get('s') || style.value;
+  if(lengthSel)  lengthSel.value  = q.get('l') || lengthSel.value;
+  if(starts)     starts.value     = (q.get('st')||"").toUpperCase();
+  if(count)      count.value      = q.get('n') || count.value;
 }
 
+// ---------- clipboard & favorites ----------
 function copy(text){
   navigator.clipboard.writeText(text).then(()=>{
-    status.textContent = 'Copied!';
-    setTimeout(()=>status.textContent='',1200);
+    if(status){ status.textContent = 'Copied!'; setTimeout(()=>status.textContent='',1200); }
   });
 }
-
 function copyAll(){
   const names = [...results.querySelectorAll('.name span:first-child')].map(n=>n.textContent);
   if(names.length) copy(names.join('\n'));
 }
-
 function addFav(name){
   const key = 'tng_favs';
   const favs = JSON.parse(localStorage.getItem(key)||'[]');
   if(!favs.includes(name)) favs.push(name);
   localStorage.setItem(key, JSON.stringify(favs));
-  status.textContent = 'Saved to Favorites';
-  setTimeout(()=>status.textContent='',1200);
+  if(status){ status.textContent = 'Saved to Favorites'; setTimeout(()=>status.textContent='',1200); }
 }
 
-el('generate').addEventListener('click', ()=>{
-  const list = generate(category.value, Math.min(200, Math.max(5, +count.value||20)), {
-    style: style.value, length: lengthSel.value, starts: starts.value
-  });
-  render(list);
-});
-results.addEventListener('click', e=>{
-  const t = e.target;
-  if(t.dataset.copy) copy(t.dataset.copy);
-  if(t.dataset.fav) addFav(t.dataset.fav);
-});
-el('copyAll').addEventListener('click', copyAll);
-el('share').addEventListener('click', ()=>{
-  const url = `${location.origin}${location.pathname}?${toQuery()}`;
-  navigator.clipboard.writeText(url);
-  status.textContent = 'Permalink copied';
-  setTimeout(()=>status.textContent='',1200);
-});
-document.getElementById('year').textContent = new Date().getFullYear();
+// ---------- GA4 safe helper ----------
+function gaEvent(name, params){
+  try{
+    if(typeof gtag === 'function'){ gtag('event', name, params||{}); }
+  }catch(_e){}
+}
 
+// ---------- events ----------
+const generateBtn = document.getElementById('generate');
+if(generateBtn){
+  generateBtn.addEventListener('click', ()=>{
+    const n = Math.min(200, Math.max(5, +(count?.value)||20));
+    const opts = { style: style?.value, length: lengthSel?.value, starts: starts?.value };
+    const list = generate((category?.value)||'business', n, opts);
+
+    // GA: log generate click
+    gaEvent('generate_click', {
+      category: (category?.value)||'business',
+      style: style?.value||'',
+      length: lengthSel?.value||'any',
+      starts_with: (starts?.value||'').toUpperCase(),
+      count: n
+    });
+
+    render(list);
+  });
+}
+
+if(results){
+  results.addEventListener('click', e=>{
+    const t = e.target;
+    if(t.dataset.copy){
+      gaEvent('copy_single', { value: t.dataset.copy.length || 0, name_len: t.dataset.copy.length });
+      copy(t.dataset.copy);
+    }
+    if(t.dataset.fav){
+      gaEvent('favorite_add', { name_len: t.dataset.fav.length });
+      addFav(t.dataset.fav);
+    }
+  });
+}
+
+const copyAllBtn = document.getElementById('copyAll');
+if(copyAllBtn){
+  copyAllBtn.addEventListener('click', ()=>{
+    const total = results ? results.querySelectorAll('.name').length : 0;
+    gaEvent('copy_all', { total });
+    copyAll();
+  });
+}
+
+const shareBtn = document.getElementById('share');
+if(shareBtn){
+  shareBtn.addEventListener('click', ()=>{
+    const url = `${location.origin}${location.pathname}?${toQuery()}`;
+    navigator.clipboard.writeText(url);
+    if(status){ status.textContent = 'Permalink copied'; setTimeout(()=>status.textContent='',1200); }
+    gaEvent('share_permalink', { path: location.pathname });
+  });
+}
+
+// footer year
+const yearEl = document.getElementById('year');
+if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+// initial state
 fromQuery();
-render(generate(category.value, +count.value, {style:style.value,length:lengthSel.value,starts:starts.value}));
+render(generate((category?.value)||'business', +(count?.value)||20, {style:style?.value,length:lengthSel?.value,starts:starts?.value}));
