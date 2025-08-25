@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baby Name Generator – TryNameGenerator.com</title>
+  <meta name="description" content="Discover unique, cute, and modern baby names instantly. Generate hundreds of baby boy and girl names with one click – free and privacy-first." />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="canonical" href="https://www.trynamegenerator.com/baby-names.html">
+</head>
+<body>
+  <header class="wrap">
+    <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+    <nav>
+      <a href="/baby-names.html" class="active">Baby</a>
+      <a href="/business-names.html">Business</a>
+      <a href="/username-generator.html">Username</a>
+      <a href="/fantasy-names.html">Fantasy</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Baby Name Generator</h1>
+    <p class="intro">Looking for the perfect baby name? Generate unique, classic, modern, and cute baby boy and girl names instantly. No ads clutter, no sign-up – just pure inspiration.</p>
+
+    <!-- Generator UI -->
+    <section class="card controls" id="controls">
+      <div class="row">
+        <input type="hidden" id="category" value="baby" />
+        <label>Style
+          <select id="style">
+            <option value="classic">Classic</option>
+            <option value="modern" selected>Modern</option>
+            <option value="cute">Cute</option>
+            <option value="edgy">Edgy</option>
+          </select>
+        </label>
+        <label>Length
+          <select id="length">
+            <option value="any" selected>Any</option>
+            <option value="short">Short</option>
+            <option value="long">Long</option>
+          </select>
+        </label>
+        <label>Starts with
+          <input id="starts" maxlength="1" placeholder="A–Z" />
+        </label>
+        <label>How many
+          <input id="count" type="number" min="5" max="200" value="20" />
+        </label>
+      </div>
+      <div class="row">
+        <button id="generate">Generate</button>
+        <button id="copyAll" class="ghost">Copy all</button>
+        <button id="share" class="ghost">Permalink</button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="results" id="results"></section>
+
+    <section class="card seo-text">
+      <h2>Why Use a Baby Name Generator?</h2>
+      <p>Choosing a baby name is one of the most exciting (and stressful!) parts of preparing for your little one. Our generator helps spark inspiration by combining traditional and modern name elements to produce fresh, unique ideas you might not think of on your own.</p>
+
+      <h2>How It Works</h2>
+      <p>The generator uses curated prefixes and suffixes found in popular names around the world. You can filter by style, starting letter, and length. Save your favorites and compare them later with family and friends.</p>
+
+      <h2>Popular Searches</h2>
+      <ul>
+        <li>Unique baby girl names</li>
+        <li>Strong baby boy names</li>
+        <li>Modern gender-neutral names</li>
+        <li>Short and cute names for babies</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <small>© <span id="year"></span> TryNameGenerator.com — <a href="/terms.html">Terms</a> • <a href="/privacy.html">Privacy</a> • <a href="/contact.html">Contact</a></small>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
