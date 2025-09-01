@@ -97,3 +97,34 @@ button.ghost:hover{border-color:var(--pri)}
   position:absolute!important;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);
   height:1px;width:1px;overflow:hidden;white-space:nowrap
 }
+
+/* --- Seasonal link grid --- */
+.link-grid{
+  list-style:none;
+  padding:0;
+  margin:8px 0 0;
+  display:grid;
+  gap:10px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.link-grid li{margin:0}
+.link-grid a{
+  display:block;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#0e1217;
+  color:var(--fg);
+  text-decoration:none;
+  line-height:1.2;
+}
+.link-grid a:hover{border-color:var(--pri)}
+.link-grid a:focus-visible{
+  outline:2px solid var(--pri);
+  outline-offset:2px;
+}
+
+/* (optional) compact on very small screens */
+@media (max-width:480px){
+  .link-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+}
