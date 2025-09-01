@@ -4,15 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Try Name Generator – Free Random Name Ideas (Baby, Business, Gamer, Fantasy)</title>
-  <meta name="description" content="Generate brandable baby, business, gamer, and fantasy names in one click. Filter by style, length, and starting letter. Free, privacy‑first." />
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-<link rel="apple-touch-icon" href="/public/logo.png" />
+  <meta name="description" content="Generate brandable baby, business, gamer, and fantasy names in one click. Filter by style, length, and starting letter. Free, privacy-first." />
   <link rel="canonical" href="https://trynamegenerator.com/">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level files) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Try Name Generator" />
+  <meta property="og:description" content="Generate names for babies, businesses, games, and fantasy characters. Free, browser-based." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://trynamegenerator.com/" />
+  <meta name="theme-color" content="#0ea5e9" />
+
   <script>window.SITE_NAME="Try Name Generator";</script>
+
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -22,10 +34,11 @@
     "applicationCategory":"UtilityApplication",
     "offers":{"@type":"Offer","price":"0"},
     "url":"https://trynamegenerator.com",
-    "description":"Generate names for babies, businesses, games, and fantasy characters. Free, browser‑based."
+    "description":"Generate names for babies, businesses, games, and fantasy characters. Free, browser-based."
   }
   </script>
-    <!-- Google tag (gtag.js) -->
+
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -36,8 +49,11 @@
 </head>
 <body>
   <header class="wrap">
-    <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+    <a class="logo" href="/">
+      <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+    </a>
     <nav>
+      <!-- keep section anchors on the homepage -->
       <a href="/#baby">Baby</a>
       <a href="/#business">Business</a>
       <a href="/#username">Username</a>
@@ -51,7 +67,7 @@
   <main class="wrap">
     <h1>Free Random Name Generator</h1>
     <p class="intro">
-      Instantly create 10–100 brandable names. Runs in your browser—no sign‑up, no tracking. Pick a category, tweak filters, and click Generate.
+      Instantly create 10–100 brandable names. Runs in your browser—no sign-up, no tracking. Pick a category, tweak filters, and click Generate.
     </p>
 
     <section class="card controls" id="controls">
@@ -111,22 +127,29 @@
       <p>Create brandable names for startups, agencies, shops, and apps. Filter by style and starting letter, then copy your favorites.</p>
 
       <h2 id="baby">Baby Name Generator</h2>
-      <p>Explore cute, classic, and modern baby names. Save your shortlist locally—no sign‑in required.</p>
+      <p>Explore cute, classic, and modern baby names. Save your shortlist locally—no sign-in required.</p>
 
       <h2 id="username">Username / Gamer Tags</h2>
       <p>Generate clean handles for gaming, TikTok, and socials. Add numbers or suffixes in one click.</p>
 
       <h2 id="fantasy">Fantasy / RPG Names</h2>
-      <p>Elf, rogue, mage—create lore‑friendly names for characters, NPCs, and worlds.</p>
+      <p>Elf, rogue, mage—create lore-friendly names for characters, NPCs, and worlds.</p>
     </section>
   </main>
 
   <div id="ad-footer" class="ad-slot" aria-label="ad space"></div>
 
   <footer class="wrap foot">
-    <small>© <span id="year"></span> TryNameGenerator.com — <a href="/terms.html">Terms</a> • <a href="/privacy.html">Privacy</a> • <a href="/contact.html">Contact</a></small>
+    <small>© <span id="year"></span> TryNameGenerator.com —
+      <a href="/terms.html">Terms</a> •
+      <a href="/privacy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a></small>
   </footer>
 
+  <!-- tiny util: set current year -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- your app logic -->
   <script src="/app.js"></script>
 </body>
 </html>
