@@ -5,13 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Username Generator – TryNameGenerator.com</title>
   <meta name="description" content="Create clean gamer tags and social handles instantly. Filter by style, length, and starting letter. Free, no sign-up." />
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="canonical" href="https://www.trynamegenerator.com/username-generator.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-  <link rel="canonical" href="https://www.trynamegenerator.com/username-generator.html">
-    <!-- Google tag (gtag.js) -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Username Generator – TryNameGenerator" />
+  <meta property="og:description" content="Generate aesthetic, clean, and edgy usernames for gaming and socials." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.trynamegenerator.com/username-generator.html" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -22,7 +35,9 @@
 </head>
 <body>
 <header class="wrap">
-  <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+  <a class="logo" href="/">
+    <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+  </a>
   <nav>
     <a href="/baby-names.html">Baby</a>
     <a href="/business-names.html">Business</a>
@@ -31,11 +46,12 @@
     <a href="/privacy.html">Privacy</a>
   </nav>
 </header>
+
 <main class="wrap">
   <h1>Username / Gamer Tag Generator</h1>
   <p class="intro">Generate aesthetic, clean, and edgy usernames for gaming and socials.</p>
 
-  <section class="card controls">
+  <section class="card controls" id="controls">
     <div class="row">
       <input type="hidden" id="category" value="username" />
       <label>Style
@@ -79,9 +95,26 @@
     </ul>
   </section>
 </main>
+
 <footer class="wrap foot">
-  <small>© <span id="year"></span> TryNameGenerator.com — <a href="/terms.html">Terms</a> • <a href="/privacy.html">Privacy</a> • <a href="/contact.html">Contact</a></small>
+  <small>© <span id="year"></span> TryNameGenerator.com —
+    <a href="/terms.html">Terms</a> •
+    <a href="/privacy.html">Privacy</a> •
+    <a href="/contact.html">Contact</a></small>
 </footer>
+
 <script src="/app.js"></script>
+
+<!-- Optional FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What style should I pick?","acceptedAnswer":{"@type":"Answer","text":"Modern for clean/techy, Cute for playful, Edgy for punchy names."}},
+    {"@type":"Question","name":"Can I share a permalink to my settings?","acceptedAnswer":{"@type":"Answer","text":"Yes — Use the Permalink button to copy a shareable URL."}}
+  ]
+}
+</script>
 </body>
 </html>
