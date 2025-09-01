@@ -55,21 +55,40 @@ function stylize(name, s) {
   return name;
 }
 
+// ---------- NEW: two-word option for business/username ----------
 function makeName(cat, opts) {
   const dict = lists[cat] || lists.business;
   const { prefix, suffix } = dict;
-  let n = rng(prefix) + rng(suffix);
+
+  const allowTwoWord = (cat === 'business' || cat === 'username');
+  const useSpace = allowTwoWord && Math.random() < 0.6; // ~60% two-word
+
+  const build = () => {
+    const p = rng(prefix);
+    const s = rng(suffix);
+    return useSpace ? `${p} ${s}` : (p + s);
+  };
+
+  let n = build();
 
   // starts-with constraint (A–Z)
   const sw = (opts.starts || "").toLowerCase();
   if (/^[a-z]$/.test(sw)) {
-    for (let i = 0; i < 40 && n[0].toLowerCase() !== sw; i++) {
-      n = rng(prefix) + rng(suffix);
+    for (let i = 0; i < 60 && n.charAt(0).toLowerCase() !== sw; i++) {
+      n = build();
     }
   }
 
-  if (opts.length === "short") n = n.slice(0, Math.max(3, Math.floor(n.length * 0.8)));
-  if (opts.length === "long")  n = n + (Math.random() > 0.5 ? rng(suffix) : rng(prefix));
+  // length tweaks
+  if (opts.length === "short") {
+    n = useSpace
+      ? n.split(' ').map(part => part.slice(0, Math.max(2, Math.floor(part.length * 0.8)))).join(' ')
+      : n.slice(0, Math.max(3, Math.floor(n.length * 0.8)));
+  }
+  if (opts.length === "long") {
+    const extra = Math.random() > 0.5 ? rng(suffix) : rng(prefix);
+    n = useSpace ? `${n} ${extra}` : n + extra;
+  }
 
   return stylize(n, opts.style);
 }
