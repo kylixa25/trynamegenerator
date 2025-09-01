@@ -4,14 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Baby Name Generator – TryNameGenerator.com</title>
-  <meta name="description" content="Discover unique, cute, and modern baby names instantly. Generate hundreds of baby boy and girl names with one click – free and privacy-first." />
-  <link rel="stylesheet" href="/styles.css">
- <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-  <link rel="canonical" href="https://www.trynamegenerator.com/baby-names.html">
-    <!-- Google tag (gtag.js) -->
+  <meta name="description" content="Discover unique, cute, and modern baby names instantly. Generate hundreds of baby boy and girl names with one click — free and privacy-first." />
+  <link rel="canonical" href="https://www.trynamegenerator.com/baby-names.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Baby Name Generator – TryNameGenerator" />
+  <meta property="og:description" content="Generate unique, classic, modern, and cute baby names in one click." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.trynamegenerator.com/baby-names.html" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -22,7 +35,9 @@
 </head>
 <body>
   <header class="wrap">
-    <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+    <a class="logo" href="/">
+      <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+    </a>
     <nav>
       <a href="/baby-names.html" class="active">Baby</a>
       <a href="/business-names.html">Business</a>
@@ -34,7 +49,7 @@
 
   <main class="wrap">
     <h1>Baby Name Generator</h1>
-    <p class="intro">Looking for the perfect baby name? Generate unique, classic, modern, and cute baby boy and girl names instantly. No ads clutter, no sign-up – just pure inspiration.</p>
+    <p class="intro">Looking for the perfect baby name? Generate unique, classic, modern, and cute baby boy and girl names instantly. No sign-up — just pure inspiration.</p>
 
     <!-- Generator UI -->
     <section class="card controls" id="controls">
@@ -74,25 +89,41 @@
 
     <section class="card seo-text">
       <h2>Why Use a Baby Name Generator?</h2>
-      <p>Choosing a baby name is one of the most exciting (and stressful!) parts of preparing for your little one. Our generator helps spark inspiration by combining traditional and modern name elements to produce fresh, unique ideas you might not think of on your own.</p>
+      <p>Choosing a baby name is one of the most exciting (and stressful!) parts of preparing for your little one. Our generator sparks ideas by combining traditional and modern name elements to produce fresh options you might not think of on your own.</p>
 
       <h2>How It Works</h2>
-      <p>The generator uses curated prefixes and suffixes found in popular names around the world. You can filter by style, starting letter, and length. Save your favorites and compare them later with family and friends.</p>
+      <p>We use curated prefixes and suffixes from popular names around the world. Filter by style, starting letter, and length. Save your favorites and compare them later with family and friends.</p>
 
       <h2>Popular Searches</h2>
       <ul>
         <li>Unique baby girl names</li>
         <li>Strong baby boy names</li>
         <li>Modern gender-neutral names</li>
-        <li>Short and cute names for babies</li>
+        <li>Short and cute baby names</li>
       </ul>
     </section>
   </main>
 
   <footer class="wrap foot">
-    <small>© <span id="year"></span> TryNameGenerator.com — <a href="/terms.html">Terms</a> • <a href="/privacy.html">Privacy</a> • <a href="/contact.html">Contact</a></small>
+    <small>© <span id="year"></span> TryNameGenerator.com —
+      <a href="/terms.html">Terms</a> •
+      <a href="/privacy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a></small>
   </footer>
 
   <script src="/app.js"></script>
+
+  <!-- Optional: FAQ schema for richer results -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can I filter names by first letter?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the 'Starts with' box to lock to a single letter A–Z."}},
+      {"@type":"Question","name":"Are these names saved or tracked?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs in your browser and nothing is stored on our servers."}},
+      {"@type":"Question","name":"Can I generate gender-neutral names?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose any style (Classic, Modern, or Cute) and filter by length; many results are unisex."}}
+    ]
+  }
+  </script>
 </body>
 </html>
