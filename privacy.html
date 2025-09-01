@@ -4,13 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy – TryNameGenerator.com</title>
-  <meta name="description" content="Read the Privacy Policy for TryNameGenerator.com. Learn how we handle data, cookies, and user information." />
-  <link rel="stylesheet" href="/styles.css">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-  <link rel="canonical" href="https://www.trynamegenerator.com/privacy.html">
+  <meta name="description" content="Read the Privacy Policy for TryNameGenerator.com. Learn how we handle data, cookies, and analytics." />
+  <link rel="canonical" href="https://www.trynamegenerator.com/privacy.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy – TryNameGenerator" />
+  <meta property="og:description" content="How TryNameGenerator.com handles data, cookies, and analytics." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.trynamegenerator.com/privacy.html" />
+  <meta name="theme-color" content="#0ea5e9" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
@@ -23,23 +35,70 @@
 </head>
 <body>
   <header class="wrap">
-    <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+    <a class="logo" href="/">
+      <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+    </a>
     <nav>
       <a href="/baby-names.html">Baby</a>
       <a href="/business-names.html">Business</a>
       <a href="/username-generator.html">Username</a>
       <a href="/fantasy-names.html">Fantasy</a>
+      <a href="/privacy.html" class="active">Privacy</a>
     </nav>
   </header>
 
   <main class="wrap card">
     <h1>Privacy Policy</h1>
-    <p>We value your privacy. TryNameGenerator.com does not track or collect personally identifiable information. Generated names are created in your browser and are never stored on our servers.</p>
-    <p>Minimal analytics are collected through Google Analytics to improve site performance. No personal data is shared with third parties.</p>
+    <p><em>Last updated: 2025-09-01</em></p>
+
+    <h2>Summary</h2>
+    <p>TryNameGenerator.com is privacy-first. Name generation runs in your browser; we don’t store your generated names on our servers.</p>
+
+    <h2>Data We Process</h2>
+    <ul>
+      <li><strong>No account data:</strong> We don’t require sign-up or personal details.</li>
+      <li><strong>Local features:</strong> Favorites and settings are saved locally in your browser (LocalStorage) and never sent to us.</li>
+      <li><strong>Analytics:</strong> We use Google Analytics to understand overall site usage (e.g., pages viewed, approximate location, device type). This helps us improve the site.</li>
+    </ul>
+
+    <h2>Cookies & Analytics</h2>
+    <p>Google Analytics may set cookies to measure anonymous usage. You can block or clear cookies in your browser settings. We don’t sell or share personal data.</p>
+
+    <h2>Data Retention</h2>
+    <p>We don’t store generated names. Any locally saved favorites remain only in your browser until you clear them.</p>
+
+    <h2>Your Choices</h2>
+    <ul>
+      <li>Use your browser’s settings to block analytics cookies.</li>
+      <li>Clear site data (LocalStorage) to remove saved favorites.</li>
+      <li>Use private/incognito mode for additional privacy.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy? Email us at
+      <a href="mailto:your@email.com">your@email.com</a>.
+    </p>
   </main>
 
   <footer class="wrap foot">
-    <small>© <span id="year"></span> TryNameGenerator.com</small>
+    <small>© <span id="year"></span> TryNameGenerator.com —
+      <a href="/terms.html">Terms</a> •
+      <a href="/privacy.html" aria-current="page">Privacy</a> •
+      <a href="/contact.html">Contact</a></small>
   </footer>
+
+  <!-- tiny util: set current year -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Privacy Policy",
+    "url":"https://www.trynamegenerator.com/privacy.html",
+    "description":"How TryNameGenerator.com handles data, cookies, and analytics."
+  }
+  </script>
 </body>
 </html>
