@@ -128,3 +128,5 @@ button.ghost:hover{border-color:var(--pri)}
 @media (max-width:480px){
   .link-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
 }
+.logo{line-height:0}
+.logo img{display:block;height:28px;width:auto}
