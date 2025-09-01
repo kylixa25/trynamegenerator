@@ -5,13 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Business Name Generator – TryNameGenerator.com</title>
   <meta name="description" content="Generate brandable business names for startups, agencies, shops, and apps. Filter by style, length, and starting letter. Free and privacy-first." />
-<link rel="stylesheet" href="/styles.css">
- <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-  <link rel="canonical" href="https://www.trynamegenerator.com/business-names.html">
-    <!-- Google tag (gtag.js) -->
+  <link rel="canonical" href="https://www.trynamegenerator.com/business-names.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Business Name Generator – TryNameGenerator" />
+  <meta property="og:description" content="Get 20–200 brandable names in one click. Perfect for companies, products, apps, and agencies." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.trynamegenerator.com/business-names.html" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -21,77 +34,98 @@
   </script>
 </head>
 <body>
-<header class="wrap">
-  <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
-  <nav>
-    <a href="/baby-names.html">Baby</a>
-    <a href="/business-names.html" class="active">Business</a>
-    <a href="/username-generator.html">Username</a>
-    <a href="/fantasy-names.html">Fantasy</a>
-    <a href="/privacy.html">Privacy</a>
-  </nav>
-</header>
-<main class="wrap">
-  <h1>Business Name Generator</h1>
-  <p class="intro">Get 20–200 brandable names in one click. Perfect for companies, products, apps, and agencies.</p>
+  <header class="wrap">
+    <a class="logo" href="/">
+      <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+    </a>
+    <nav>
+      <a href="/baby-names.html">Baby</a>
+      <a href="/business-names.html" class="active">Business</a>
+      <a href="/username-generator.html">Username</a>
+      <a href="/fantasy-names.html">Fantasy</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </header>
 
-  <section class="card controls">
-    <div class="row">
-      <input type="hidden" id="category" value="business" />
-      <label>Style
-        <select id="style">
-          <option value="classic">Classic</option>
-          <option value="modern" selected>Modern</option>
-          <option value="cute">Cute</option>
-          <option value="edgy">Edgy</option>
-        </select>
-      </label>
-      <label>Length
-        <select id="length">
-          <option value="any" selected>Any</option>
-          <option value="short">Short</option>
-          <option value="long">Long</option>
-        </select>
-      </label>
-      <label>Starts with
-        <input id="starts" maxlength="1" placeholder="A–Z" />
-      </label>
-      <label>How many
-        <input id="count" type="number" min="5" max="200" value="20" />
-      </label>
-    </div>
-    <div class="row">
-      <button id="generate">Generate</button>
-      <button id="copyAll" class="ghost">Copy all</button>
-      <button id="share" class="ghost">Permalink</button>
-      <span id="status" role="status" aria-live="polite"></span>
-    </div>
-  </section>
+  <main class="wrap">
+    <h1>Business Name Generator</h1>
+    <p class="intro">Get 20–200 brandable names in one click. Perfect for companies, products, apps, and agencies.</p>
 
-  <section class="results" id="results"></section>
+    <section class="card controls" id="controls">
+      <div class="row">
+        <input type="hidden" id="category" value="business" />
+        <label>Style
+          <select id="style">
+            <option value="classic">Classic</option>
+            <option value="modern" selected>Modern</option>
+            <option value="cute">Cute</option>
+            <option value="edgy">Edgy</option>
+          </select>
+        </label>
+        <label>Length
+          <select id="length">
+            <option value="any" selected>Any</option>
+            <option value="short">Short</option>
+            <option value="long">Long</option>
+          </select>
+        </label>
+        <label>Starts with
+          <input id="starts" maxlength="1" placeholder="A–Z" />
+        </label>
+        <label>How many
+          <input id="count" type="number" min="5" max="200" value="20" />
+        </label>
+      </div>
+      <div class="row">
+        <button id="generate">Generate</button>
+        <button id="copyAll" class="ghost">Copy all</button>
+        <button id="share" class="ghost">Permalink</button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
 
-  <aside class="card tips">
-    <h2>Check Domains</h2>
-    <p>See if your favorite is available:
-      <a class="cta" target="_blank" rel="nofollow noopener" href="https://www.namecheap.com/domains/registration/results/?aff=YOUR_ID&domain={domain}">
-        Check domain →
-      </a>
-    </p>
-  </aside>
+    <section class="results" id="results"></section>
 
-  <section class="card seo-text">
-    <h2>Naming Tips</h2>
-    <ul>
-      <li>Keep it short (≤10 letters) and easy to spell.</li>
-      <li>Avoid hyphens and double letters when possible.</li>
-      <li>Check domain + social handle availability.</li>
-      <li>Say it out loud — does it pass the phone test?</li>
-    </ul>
-  </section>
-</main>
-<footer class="wrap foot">
-  <small>© <span id="year"></span> TryNameGenerator.com — <a href="/terms.html">Terms</a> • <a href="/privacy.html">Privacy</a> • <a href="/contact.html">Contact</a></small>
-</footer>
-<script src="/app.js"></script>
+    <aside class="card tips">
+      <h2>Check Domains</h2>
+      <p>See if your favorite is available:
+        <a class="cta" target="_blank" rel="nofollow noopener"
+           href="https://www.namecheap.com/domains/registration/results/?aff=YOUR_ID&domain={domain}">
+          Check domain →
+        </a>
+      </p>
+    </aside>
+
+    <section class="card seo-text">
+      <h2>Naming Tips</h2>
+      <ul>
+        <li>Keep it short (≤10 letters) and easy to spell.</li>
+        <li>Avoid hyphens and double letters when possible.</li>
+        <li>Check domain + social handle availability.</li>
+        <li>Say it out loud — does it pass the phone test?</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <small>© <span id="year"></span> TryNameGenerator.com —
+      <a href="/terms.html">Terms</a> •
+      <a href="/privacy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a></small>
+  </footer>
+
+  <script src="/app.js"></script>
+
+  <!-- Optional FAQ schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can I filter by starting letter?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the Starts with field to constrain results to a single letter A–Z."}},
+      {"@type":"Question","name":"Can I check domain availability?","acceptedAnswer":{"@type":"Answer","text":"Use the ‘Check domain’ button — it auto-fills your top result as a .com search."}}
+    ]
+  }
+  </script>
 </body>
 </html>
