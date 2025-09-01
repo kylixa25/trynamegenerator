@@ -4,13 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aesthetic Usernames – TryNameGenerator.com</title>
-  <meta name="description" content="Aesthetic Usernames" />
-<link rel="stylesheet" href="/styles.css">
+  <meta name="description" content="Generate aesthetic usernames and soft, clean handles for TikTok, gaming, and socials. One-click copy, no sign-up." />
+  <link rel="canonical" href="https://www.trynamegenerator.com/aesthetic-usernames.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-  <link rel="canonical" href="https://www.trynamegenerator.com/aesthetic-usernames.html">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aesthetic Usernames – TryNameGenerator" />
+  <meta property="og:description" content="Generate aesthetic usernames and soft, clean handles for TikTok, gaming, and socials." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.trynamegenerator.com/aesthetic-usernames.html" />
+  <meta name="theme-color" content="#0ea5e9" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
@@ -20,26 +32,53 @@
     gtag('js', new Date());
     gtag('config', 'G-NVRGL792ZL');
   </script>
-
 </head>
 <body>
   <header class="wrap">
-    <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+    <a class="logo" href="/">
+      <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+    </a>
+    <nav>
+      <a href="/baby-names.html">Baby</a>
+      <a href="/business-names.html">Business</a>
+      <a href="/username-generator.html" class="active">Username</a>
+      <a href="/fantasy-names.html">Fantasy</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
   </header>
+
   <main class="wrap">
     <h1>Aesthetic Usernames</h1>
+    <p class="intro">Soft, clean, and modern username ideas for TikTok, gaming, and socials. One-click generate and copy.</p>
+
     <section class="card controls">
       <div class="row">
+        <!-- Preconfigure the generator for this page -->
         <input type="hidden" id="category" value="username" />
-        <label>How many <input id="count" type="number" value="20" /></label>
+        <input type="hidden" id="style" value="aesthetic" />
+        <input type="hidden" id="length" value="any" />
+        <input type="hidden" id="starts" value="" />
+        <label>How many <input id="count" type="number" min="5" max="200" value="20" /></label>
       </div>
-      <div class="row"><button id="generate">Generate</button></div>
+      <div class="row">
+        <button id="generate">Generate</button>
+        <button id="copyAll" class="ghost">Copy all</button>
+        <button id="share" class="ghost">Permalink</button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </div>
     </section>
+
     <section class="results" id="results"></section>
   </main>
+
   <footer class="wrap foot">
-    <small>© <span id="year"></span> TryNameGenerator.com</small>
+    <small>© <span id="year"></span> TryNameGenerator.com —
+      <a href="/terms.html">Terms</a> •
+      <a href="/privacy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a></small>
   </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="/app.js"></script>
 </body>
 </html>
