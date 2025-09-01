@@ -5,12 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Us – TryNameGenerator.com</title>
   <meta name="description" content="Contact TryNameGenerator.com for questions, feedback, or support." />
-  <link rel="stylesheet" href="/styles.css">
- <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-  <link rel="canonical" href="https://www.trynamegenerator.com/contact.html">
+  <link rel="canonical" href="https://www.trynamegenerator.com/contact.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact Us – TryNameGenerator" />
+  <meta property="og:description" content="Get in touch with TryNameGenerator.com for questions, feedback, or support." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.trynamegenerator.com/contact.html" />
+  <meta name="theme-color" content="#0ea5e9" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
@@ -23,22 +35,51 @@
 </head>
 <body>
   <header class="wrap">
-    <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+    <a class="logo" href="/">
+      <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+    </a>
     <nav>
       <a href="/baby-names.html">Baby</a>
       <a href="/business-names.html">Business</a>
       <a href="/username-generator.html">Username</a>
       <a href="/fantasy-names.html">Fantasy</a>
+      <a href="/privacy.html">Privacy</a>
     </nav>
   </header>
 
   <main class="wrap card">
     <h1>Contact Us</h1>
-    <p>Have a question or suggestion? Reach us at <a href="mailto:your@email.com">your@email.com</a>.</p>
+    <p>Have a question or suggestion? Email us at
+      <!-- TODO: replace with your real support inbox -->
+      <a href="mailto:your@email.com">your@email.com</a>.
+    </p>
+    <p>We usually reply within 1–2 business days.</p>
   </main>
 
   <footer class="wrap foot">
-    <small>© <span id="year"></span> TryNameGenerator.com</small>
+    <small>© <span id="year"></span> TryNameGenerator.com —
+      <a href="/terms.html">Terms</a> •
+      <a href="/privacy.html">Privacy</a> •
+      <a href="/contact.html" aria-current="page">Contact</a></small>
   </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- ContactPage schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ContactPage",
+    "url":"https://www.trynamegenerator.com/contact.html",
+    "name":"Contact TryNameGenerator",
+    "description":"Contact TryNameGenerator.com for questions, feedback, or support.",
+    "contactPoint": {
+      "@type":"ContactPoint",
+      "contactType":"customer support",
+      "email":"mailto:your@email.com",
+      "availableLanguage":["English"]
+    }
+  }
+  </script>
 </body>
 </html>
