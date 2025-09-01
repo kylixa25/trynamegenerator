@@ -4,14 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fantasy Name Generator – TryNameGenerator.com</title>
-  <meta name="description" content="Elf, rogue, mage, and more — generate lore-friendly fantasy names for characters and worlds." />
-  <link rel="stylesheet" href="/styles.css">
+  <meta name="description" content="Elf, rogue, mage, and more — generate lore-friendly fantasy names for characters and worlds. Filter by style, length, and starting letter. One-click copy, no sign-up." />
+  <link rel="canonical" href="https://www.trynamegenerator.com/fantasy-names.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-  <link rel="canonical" href="https://www.trynamegenerator.com/fantasy-names.html">
-    <!-- Google tag (gtag.js) -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fantasy Name Generator – TryNameGenerator" />
+  <meta property="og:description" content="Create evocative names for characters, NPCs, realms, and guilds." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.trynamegenerator.com/fantasy-names.html" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -22,7 +35,9 @@
 </head>
 <body>
 <header class="wrap">
-  <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+  <a class="logo" href="/">
+    <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+  </a>
   <nav>
     <a href="/baby-names.html">Baby</a>
     <a href="/business-names.html">Business</a>
@@ -31,11 +46,12 @@
     <a href="/privacy.html">Privacy</a>
   </nav>
 </header>
+
 <main class="wrap">
   <h1>Fantasy Name Generator</h1>
   <p class="intro">Create evocative names for characters, NPCs, realms, and guilds.</p>
 
-  <section class="card controls">
+  <section class="card controls" id="controls">
     <div class="row">
       <input type="hidden" id="category" value="fantasy" />
       <label>Style
@@ -44,6 +60,7 @@
           <option value="modern" selected>Modern</option>
           <option value="cute">Cute</option>
           <option value="edgy">Edgy</option>
+          <option value="aesthetic">Aesthetic</option>
         </select>
       </label>
       <label>Length
@@ -79,9 +96,26 @@
     </ul>
   </section>
 </main>
+
 <footer class="wrap foot">
-  <small>© <span id="year"></span> TryNameGenerator.com — <a href="/terms.html">Terms</a> • <a href="/privacy.html">Privacy</a> • <a href="/contact.html">Contact</a></small>
+  <small>© <span id="year"></span> TryNameGenerator.com —
+    <a href="/terms.html">Terms</a> •
+    <a href="/privacy.html">Privacy</a> •
+    <a href="/contact.html">Contact</a></small>
 </footer>
+
 <script src="/app.js"></script>
+
+<!-- Optional FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Can I lock to a starting letter?","acceptedAnswer":{"@type":"Answer","text":"Yes — set the “Starts with” box to any single letter A–Z."}},
+    {"@type":"Question","name":"Are results unique each time?","acceptedAnswer":{"@type":"Answer","text":"Yes — every click combines curated name parts to produce fresh options."}}
+  ]
+}
+</script>
 </body>
 </html>
