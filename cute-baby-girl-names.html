@@ -4,13 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cute Baby Girl Names – TryNameGenerator.com</title>
-  <meta name="description" content="Cute Baby Girl Names" />
-  <link rel="stylesheet" href="/styles.css">
+  <meta name="description" content="Generate cute baby girl names — soft, sweet, and modern. Filter by style, length, and starting letter. One-click copy, no sign-up." />
+  <link rel="canonical" href="https://www.trynamegenerator.com/cute-baby-girl-names.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Icons (root-level) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
-<meta property="og:image" content="/logo.svg">
-  <link rel="canonical" href="https://www.trynamegenerator.com/cute-baby-girl-names.html">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cute Baby Girl Names – TryNameGenerator" />
+  <meta property="og:description" content="Soft, sweet, and modern baby girl name ideas you can generate and copy in one click." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.trynamegenerator.com/cute-baby-girl-names.html" />
+  <meta name="theme-color" content="#0ea5e9" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVRGL792ZL"></script>
@@ -20,26 +32,90 @@
     gtag('js', new Date());
     gtag('config', 'G-NVRGL792ZL');
   </script>
-
 </head>
 <body>
   <header class="wrap">
-    <a class="logo" href="/">TryNameGenerator<span>.com</span></a>
+    <a class="logo" href="/">
+      <img src="/logo.svg" alt="TryNameGenerator" width="164" height="28">
+    </a>
+    <nav>
+      <a href="/baby-names.html" class="active">Baby</a>
+      <a href="/business-names.html">Business</a>
+      <a href="/username-generator.html">Username</a>
+      <a href="/fantasy-names.html">Fantasy</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
   </header>
+
   <main class="wrap">
     <h1>Cute Baby Girl Names</h1>
-    <section class="card controls">
+    <p class="intro">Soft, sweet, and modern baby girl name ideas. Tune the style, length, and first letter — then copy your favorites.</p>
+
+    <!-- Generator UI -->
+    <section class="card controls" id="controls">
       <div class="row">
         <input type="hidden" id="category" value="baby" />
-        <label>How many <input id="count" type="number" value="20" /></label>
+        <label>Style
+          <select id="style">
+            <option value="classic">Classic</option>
+            <option value="modern">Modern</option>
+            <option value="cute" selected>Cute</option>
+            <option value="edgy">Edgy</option>
+          </select>
+        </label>
+        <label>Length
+          <select id="length">
+            <option value="any" selected>Any</option>
+            <option value="short">Short</option>
+            <option value="long">Long</option>
+          </select>
+        </label>
+        <label>Starts with
+          <input id="starts" maxlength="1" placeholder="A–Z" />
+        </label>
+        <label>How many
+          <input id="count" type="number" min="5" max="200" value="20" />
+        </label>
       </div>
-      <div class="row"><button id="generate">Generate</button></div>
+      <div class="row">
+        <button id="generate">Generate</button>
+        <button id="copyAll" class="ghost">Copy all</button>
+        <button id="share" class="ghost">Permalink</button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </div>
     </section>
+
     <section class="results" id="results"></section>
+
+    <section class="card seo-text">
+      <h2>Quick Tips</h2>
+      <ul>
+        <li>Try short, vowel-forward names for a softer feel.</li>
+        <li>Use the “Starts with” box to match sibling initials.</li>
+        <li>Say it out loud with your last name to test flow.</li>
+      </ul>
+    </section>
   </main>
+
   <footer class="wrap foot">
-    <small>© <span id="year"></span> TryNameGenerator.com</small>
+    <small>© <span id="year"></span> TryNameGenerator.com —
+      <a href="/terms.html">Terms</a> •
+      <a href="/privacy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a></small>
   </footer>
+
   <script src="/app.js"></script>
+
+  <!-- Optional FAQ schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can I filter by the first letter?","acceptedAnswer":{"@type":"Answer","text":"Yes — use the “Starts with” box to lock to A–Z."}},
+      {"@type":"Question","name":"Are names saved or tracked?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs in your browser; nothing is stored on our servers."}}
+    ]
+  }
+  </script>
 </body>
 </html>
